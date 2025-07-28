@@ -1,0 +1,44 @@
+    <div class="order-summary">
+        <div class="title" style="display: flex;">
+      <h2 style="width:50%;margin-left:22%;font-size:30px;color:#c00000">Order Summary</h2>
+
+   
+</div>
+      
+  
+      <div *ngFor="let order of orders" class="order-card" >
+       
+        <div class="order-header">
+          <p><strong>Order #{{ order.id }}</strong></p>
+        <div class="b">
+          <button class="trash" (click)="delete(order)"><img src="assets/img/trash2.png" alt=""></button>
+
+          <div
+          class="status" 
+          [ngClass]="{ 'confirmed-status': order.status === 'Confirmed' }" >
+          {{ order.status }}
+        </div>
+      </div>
+                </div>
+  
+        <div *ngFor="let p of order.products" class="product-card" >
+          <img [src]="'http://localhost:8080/upload/files/' + p.image" alt="{{ p.name }}" class="product-image" />
+          <div class="product-info">
+            <h4 class="product-title">{{ p.name }}</h4>
+            <p class="product-meta">Qty: {{ p.cartQuantity }}</p>
+          </div>
+          <div class="product-price">€{{ p.price }}</div>
+        </div>
+      <div class="final" style="display: flex;">
+        <button [routerLink]="['/delivery-info',order.id]"   >Accept Order</button>
+        <div class="order-total" style="margin-top: 1.5%;font-size:20px">
+          <strong class="order-total-label">Total:</strong>
+          <strong class="order-total-value">€{{ order.total }}</strong>
+        </div>
+      </div>
+          
+      
+      </div>
+    </div>
+
+  

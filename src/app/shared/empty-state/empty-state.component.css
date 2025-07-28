@@ -1,0 +1,24 @@
+.empty-state {
+    text-align: center;
+    padding: 50px 20px;
+    color: #555;
+    font-family: "Segoe UI", sans-serif;
+  }
+
+  .empty-state img {
+    width: 150px;
+    margin-bottom: 20px;
+    opacity: 0.6;
+  }
+  
+  .empty-state h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: #ae3848;
+  }
+  
+  .empty-state p {
+    font-size: 1rem;
+    color: #777;
+  }
+  

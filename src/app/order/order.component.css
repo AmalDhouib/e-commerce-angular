@@ -1,0 +1,166 @@
+.order-container {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 1rem;
+  background-color: #f7f9fc;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.order-summary {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem;
+}
+
+.order-summary h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: #c00000;
+  margin-bottom: 2rem;
+}
+
+.order-card {
+  background: #fafafa;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  padding: 1rem;
+  margin-bottom: 2rem;
+}
+
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.b {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.order-card .b button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.order-card .b button img {
+  width: 20px;
+  height: 20px;
+}
+
+.status {
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  background-color: #f2cccc;
+  color: #c00000;
+}
+
+.confirmed-status {
+  background-color: #d0f5c3;
+  color: #228822;
+}
+
+.product-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+  padding: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.product-image {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+
+.product-info {
+  flex-grow: 1;
+}
+
+.product-title {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.product-meta {
+  font-size: 0.95rem;
+  color: #981515;
+}
+
+.product-price {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #222;
+  min-width: 70px;
+  text-align: right;
+}
+
+.order-card button {
+  background-color: rgb(237, 173, 127);
+  border: 1px solid rgb(100, 33, 30);
+  border-radius: 8px;
+  padding: 6px 12px;
+  margin-top: 1rem;
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+}
+
+.order-total-label {
+  font-weight: bold;
+  color: #650d0d;
+}
+
+.order-total-value {
+  color: #981515;
+}
+
+@media (max-width: 768px) {
+  .product-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .order-card button {
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  .order-summary h2 {
+    font-size: 1.5rem;
+    margin-left: 0;
+  }
+
+  .b {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .product-price {
+    text-align: left;
+    width: 100%;
+  }
+  .order-total{
+    margin-left: 1%!important;
+  }
+}
+.order-total{
+  margin-left: 85%;
+}

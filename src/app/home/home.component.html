@@ -1,0 +1,56 @@
+<div class="wrapper-hero">
+
+<div class="hero-container">
+    <div
+      class="hero-slide"
+      *ngFor="let slide of slides; let i = index"
+      [class.active]="i === currentSlide"
+    >
+      <img src="assets/img/baccccc.jpg" alt="slide image" class="hero-bg" />
+      <div class="hero-overlay">
+        <h1>{{ slide.title }}</h1>
+        <p>{{ slide.subtitle }}</p>
+        <button (click)="startShopping()" [routerLink]="'/products'">Let's Start</button>
+      </div>
+    </div>
+  
+    <div class="hero-navigation">
+      <button class="nav-button" (click)="prevSlide()">❮</button>
+      <button class="nav-button" (click)="nextSlide()">❯</button>
+    </div>
+  
+    <div class="white-gradient"></div>
+  </div>
+  
+  <div id="about" style="position:relative;left:0;bottom:0">
+    <app-about></app-about>
+  </div>
+
+    <div class="hero-message">
+    <h1>Unlock the World of Unique Handmade Wonders</h1>
+    <p>Step inside and explore treasures crafted with passion and tradition.</p>
+  </div>
+  <div class="door-scene" (click)="openDoor()">
+    <div class="door-frame" [class.open]="doorOpened">
+      <div class="gift-lid"></div>
+      <div class="gift-base"></div>
+      <div class="gift-ribbon-vertical"></div>
+      <div class="gift-ribbon-horizontal"></div>
+      <div class="gift-bow"></div>
+    </div>
+  
+    <div class="confetti">
+      <div class="confetti-piece"></div>
+      <div class="confetti-piece"></div>
+      <div class="confetti-piece"></div>
+      <div class="confetti-piece"></div>
+      <div class="confetti-piece"></div>
+      <div class="confetti-piece"></div>
+    </div>
+  
+    <p class="door-text">Tap the Gift Box to Discover Handmade Treasures</p>
+  </div>
+  
+</div>
+
+  

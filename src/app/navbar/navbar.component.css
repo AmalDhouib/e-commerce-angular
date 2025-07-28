@@ -1,0 +1,200 @@
+.navbar {
+  position: fixed; 
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 70px;
+  background-color: #000;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  z-index: 10000;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.navbar-logo img {
+  height: 50px; 
+}
+.navbar-logo span {
+  font-size: 22px;
+  font-weight: 300;
+  font-family: "Rowdies", sans-serif;
+  color: rgb(228, 34, 4);
+}
+
+/* Menu Links */
+.navbar-links {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+  margin: 0;
+  font-family: "Rowdies", sans-serif;
+  font-weight: 300;
+  cursor: pointer;
+}
+.navbar-links a {
+  color: rgb(241, 225, 225);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+.navbar-links a:hover {
+  color: #9d0b08;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.auth-buttons {
+  display: flex;
+  gap: 10px;
+}
+.auth-buttons .btn-login {
+  background-color: #222;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.auth-buttons .btn-login:hover {
+  background-color: #444;
+}
+.auth-buttons .btn-register, .btn-logout {
+  background-color: #e63d13;
+  color: black;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: "Rowdies", sans-serif;
+  font-weight: 300;
+  transition: background-color 0.3s, color 0.3s;
+}
+.auth-buttons .btn-register:hover, .btn-logout:hover {
+  background-color: #ba5454;
+  color: white;
+}
+
+.navbar-notification {
+  position: relative;
+  font-size: 20px;
+  cursor: pointer;
+}
+.navbar-notification .badge {
+  position: absolute;
+  top: -5px;
+  right: -6px;
+  background: red;
+  color: white;
+  font-size: 10px;
+  padding: 2px 5px;
+  border-radius: 50%;
+}
+
+.theme-toggle input {
+  display: none;
+}
+.theme-toggle label {
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.navbar-logo img {
+  height: 100px;
+}
+
+.hamburger {
+  display: none;
+  font-size: 28px;
+  color: white;
+  cursor: pointer;
+  user-select: none;
+}
+
+.menu-toggle {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .hamburger {
+    display: block;
+  }
+
+  .navbar-links,
+  .navbar-right {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background-color: #111;
+    flex-direction: column;
+    width: 100%;
+    padding: 20px 0;
+    display: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+    z-index: 9999;
+    border-top: 2px solid rgb(228, 34, 4);
+    animation: slideDown 0.3s ease forwards;
+  }
+
+  .navbar-links {
+    gap: 15px;
+    margin-top: 150px;
+  }
+  .navbar-links li {
+    margin: 10px 0;
+  }
+  .navbar-links a {
+    color: white;
+    font-size: 18px;
+  }
+  .navbar-links a:hover {
+    color: rgb(228, 34, 4);
+  }
+
+  .auth-buttons {
+    flex-direction: column;
+    gap: 10px;
+    padding: 0 20px;
+  }
+  .auth-buttons .btn-login,
+  .auth-buttons .btn-register,
+  .btn-logout {
+    font-size: 16px;
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .menu-toggle:checked ~ .navbar-links,
+  .menu-toggle:checked ~ .navbar-right {
+    display: flex;
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-15px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}

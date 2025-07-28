@@ -1,0 +1,31 @@
+
+<div class="favorite">
+<div class="title">
+    <h2>Your Favorites</h2>
+  </div>
+  
+  <app-empty-state
+    *ngIf="empty"
+    [title]="'No favorites yet!'"
+    [message]="'Browse products and add your favorites.'"
+  ></app-empty-state>
+  <div class="favorite-item" *ngFor="let fav of favorites">
+    <div class="favorite-container" *ngIf="fav.product">
+      <img
+        [src]="'http://localhost:8080/upload/files/' + fav.product.image"
+        alt="{{ fav.product.name }}"
+        class="favorite-image"
+      />
+      <div class="favorite-info">
+        <h3>{{ fav.product.name }}</h3>
+        <p>Price: {{ fav.product.price }} €</p>
+        <p>Description: {{ fav.product.description }}</p>
+        <p>Material: {{ fav.product.material }}</p>
+      </div>
+      <button class="remove-btn" (click)="removeFavorite(fav.product.id)">
+        <img src="/assets/img/trash2.png" alt="Supprimer" />
+      </button>
+          </div>
+  </div>
+</div>
+  

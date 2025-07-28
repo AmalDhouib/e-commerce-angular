@@ -1,0 +1,33 @@
+<div class="title">
+    <img src="/assets/img/addd.png" alt="">
+    <h2>Your cart</h2>
+</div>
+<app-empty-state
+  *ngIf="empty"
+  [title]="'Your cart is empty!'"
+  [message]="error"
+></app-empty-state>
+
+<div class="cart-container">
+    <div class="cart-item" *ngFor="let item of cartItems">
+      <div class="item-details">
+        <img [src]="'http://localhost:8080/upload/files/' + item.image" alt="{{ item.name }}" />
+        <div class="item-info">
+          <h3>{{ item.name }}</h3>
+          <p>Unit Price: {{ item.price }} €</p>
+          <p>Total: <span>{{ item.price * item.cartQuantity }} €</span></p>
+
+          <div class="quantity-controls">
+            <button (click)="decreaseQuantity(item)">−</button>
+            <span>{{ item.cartQuantity }}</span>
+            <button (click)="increasequantity(item)">+</button>
+          </div>
+        </div>
+        <button class="remove-btn" (click)="remove(item)">✖</button>
+      </div>
+    </div>
+  </div>
+  <button class="pay-button" (click)="confirmOrder()">
+    <img src="/assets/img/next.png" alt="Next">
+  </button>
+  

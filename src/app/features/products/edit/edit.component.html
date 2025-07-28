@@ -1,0 +1,87 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Merienda:wght@300..900&family=Roboto+Flex:opsz,wght@8..144,100..1000&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rowdies:wght@300;400;700&family=Truculenta:opsz,wght@12..72,100..900&display=swap" rel="stylesheet">
+<form [formGroup]="productform" (ngSubmit)="OnSubmit()" class="product-edit-card">
+  <div class="edit">
+    <img src="/assets/img/edit.png" alt="">
+    <h2> Edit Product</h2>
+
+  </div>
+ 
+
+  <div class="card-content">
+    <div class="image-section">
+      <div class="image-preview" *ngIf="imagePreviewUrl">
+        <img [src]="imagePreviewUrl" alt="Current product image" />
+      </div>
+      <input id="image" type="file" (change)="onFileChange($event)" />
+    </div>
+
+    <div class="fields-section">
+      <div class="form-group">
+        <label for="name">Product Name</label>
+        <input id="name" formControlName="name" type="text" />
+      </div>
+
+      <div class="form-group">
+        <label for="price">Price </label>
+        <input id="price" formControlName="price" type="number" step="0.01" />
+      </div>
+
+      <div class="form-group">
+        <label for="stockQuantity">Stock Quantity</label>
+        <input id="stockQuantity" formControlName="stockQuantity" type="number" />
+      </div>
+
+      <div class="form-group">
+        <label for="category">Category</label>
+        <select id="category" formControlName="category">
+          <option *ngFor="let cat of categories" [ngValue]="cat.id">{{ cat.name }}</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="material">Material</label>
+        <input id="material" formControlName="material" type="text" />
+      </div>
+
+      <div class="form-group">
+        <label for="technique">Technique</label>
+        <input id="technique" formControlName="technique" type="text" />
+      </div>
+
+      <div class="form-group">
+        <label for="originCountry">Country of Origin</label>
+        <input id="originCountry" formControlName="originCountry" type="text" />
+      </div>
+
+      <div class="form-group">
+        <label for="productionTime">Production Time</label>
+        <input id="productionTime" formControlName="productionTime" type="text" />
+      </div>
+
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea id="description" formControlName="description" rows="3"></textarea>
+      </div>
+
+      <div class="checkbox-group">
+        <label><input type="checkbox" formControlName="ecoFriendly" /> Eco-friendly</label>
+        <label><input type="checkbox" formControlName="limitedEdition" /> Limited Edition</label>
+      </div>
+   <div class="buttons">
+      <button type="submit" [disabled]="productform.invalid"> Save Changes</button>
+      <button [routerLink]="['/products']" routerLinkActive="router-link-active" >Products Page</button>
+    </div>
+    </div>
+  </div>
+</form>
+<div *ngIf="showSuccessPopup" class="popup-overlay">
+  <div class="popup-content">
+    <button class="close-btn" (click)="showSuccessPopup = false">&times;</button>
+    <img src="/assets/img/success.avif" alt="Success photo" class="popup-image" />
+    <h3>Update Successful!</h3>
+    <p>Your product has been updated successfully.</p>
+  </div>
+</div>
+

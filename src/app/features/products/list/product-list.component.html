@@ -1,0 +1,79 @@
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rowdies:wght@300;400;700&display=swap" rel="stylesheet">
+
+<div class="filter-search-container">
+  <img src="assets/img/1.png" alt="" class="icon-button" />
+  <div class="category-dropdown-container">
+    <select id="categoryDropdown" (change)="onCategoryChange($event)">
+      <option value="">All categories</option>
+      <option *ngFor="let cat of categories" [value]="cat.name">{{ cat.name }}</option>
+    </select>
+  </div>
+  <div class="search-container">
+    <label for="searchInput" class="visually-hidden">Search products</label>
+    <input
+      id="searchInput"
+      type="text"
+      placeholder="Search products..."
+      [(ngModel)]="searchTerm"
+      (input)="filterProducts()"
+      autocomplete="on"
+    />
+    <img src="assets/img/search.png" alt="search icon" class="search-icon" />
+  </div>
+</div>
+
+<div class="product-cards-container">
+  <div class="product-card" *ngFor="let produit of products">
+    <img
+      [src]="'http://localhost:8080/upload/files/' + produit.image"
+      alt="{{ produit.name }}"
+      class="product-image"
+    />
+
+
+    <div class="product-info">
+      <div class="name-favorite-row">
+        <img 
+        class="favorite-star"
+        [src]="produit.favorite ? 'https://cdn-icons-png.flaticon.com/512/1828/1828884.png' 
+                                : 'https://images.vexels.com/media/users/3/136916/isolated/lists/aa21eb60437133bf4f4be189636a187a-star-favorite-outline-icon.png'"
+        (click)="toggleFavorite(produit)"
+        alt="Favorite"
+        
+      />
+        <h3 class="clickable-name" [routerLink]="['/detail', produit.id]" style="margin-bottom: 0;">
+          {{ produit.name }}
+        </h3>
+  
+            </div>
+      
+
+      <div class="info">
+        <p class="product-price">Price: {{ produit.price | number: '1.2-2' }} €</p>
+        <p class="product-stock">Stock: {{ produit.stockQuantity }}</p>
+      </div>
+      <p class="product-category">Category: {{ produit.category.name }}</p>
+    </div>
+
+    <div class="buttons">
+      <button *ngIf="authService.getUserRole() === 'VENDOR'" (click)="deleteProduct(produit.id)" class="delete-button">Delete</button>
+      <button *ngIf="authService.getUserRole() === 'VENDOR'" [routerLink]="['/update-product', produit.id]" class="edit-button">Edit</button>
+    </div>
+  </div>
+</div>
+
+<app-empty-state
+  *ngIf="!loading && !error && products.length === 0"
+  title="No Products Available"
+  message="Try changing the category or search keyword.">
+</app-empty-state>
+
+
+<button *ngIf="authService.getUserRole() === 'VENDOR'" [routerLink]="['/add']" class="add-product-button" >
+  <img src="assets/img/add.png" alt="" />
+</button>
+
+

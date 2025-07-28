@@ -1,0 +1,52 @@
+<div class="register-container">
+    <div class="left-panel">
+      <img src="assets/img/shop.png" alt="Shopping Illustration" />
+    </div>
+    <div class="right-panel">
+      <form (ngSubmit)="onSubmit()" #registerForm="ngForm" class="register-form">
+        <h2>Create your account</h2>
+  
+        <div class="form-group">
+          <label for="firstName">First Name</label>
+          <input id="firstName" name="firstName" type="text" required [(ngModel)]="firstName" #firstNameCtrl="ngModel" placeholder="Enter your first name" />
+          <div *ngIf="firstNameCtrl.invalid && firstNameCtrl.touched" class="error">First name is required</div>
+        </div>
+  
+        <div class="form-group">
+          <label for="lastName">Last Name</label>
+          <input id="lastName" name="lastName" type="text" required [(ngModel)]="lastName" #lastNameCtrl="ngModel" placeholder="Enter your last name" />
+          <div *ngIf="lastNameCtrl.invalid && lastNameCtrl.touched" class="error">Last name is required</div>
+        </div>
+  
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required [(ngModel)]="email" #emailCtrl="ngModel" placeholder="Enter your email" />
+          <div *ngIf="emailCtrl.invalid && emailCtrl.touched" class="error">Valid email is required</div>
+        </div>
+  
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input id="password" name="password" type="password" required minlength="6" [(ngModel)]="password" #passwordCtrl="ngModel" placeholder="Create a password" />
+          <div *ngIf="passwordCtrl.invalid && passwordCtrl.touched" class="error">Password must be at least 6 characters</div>
+        </div>
+  
+        <div class="form-group">
+          <label for="role">Role</label>
+          <select id="role" name="role" required [(ngModel)]="role" #roleCtrl="ngModel">
+            <option value="" disabled selected>Select your role</option>
+            <option value="USER">User</option>
+            <option value="VENDOR">Vendor</option>
+          </select>
+          <div *ngIf="roleCtrl.invalid && roleCtrl.touched" class="error">Role is required</div>
+        </div>
+  
+        <button type="submit" [disabled]="registerForm.invalid">Register</button>
+  
+        <p class="redirect-text">
+          Already have an account?
+          <a [routerLink]="'/login'">Login</a>
+        </p>
+      </form>
+    </div>
+  </div>
+  

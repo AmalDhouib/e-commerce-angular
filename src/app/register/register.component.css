@@ -1,0 +1,128 @@
+.register-container {
+    display: flex;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .left-panel {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+  }
+  
+  .left-panel img {
+    max-width: 100%;
+    
+    border-radius: 20px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+  }
+  
+  .right-panel {
+    flex: 1;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem 2rem;
+  }
+  
+  .register-form {
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .register-form h2 {
+    margin-bottom: 1.5rem;
+    color: #8a0a0a;
+    text-align: center;
+  }
+  
+  .form-group {
+    margin-bottom: 1.2rem;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 0.4rem;
+    font-weight: 600;
+    color: #555;
+  }
+  
+  .form-group input,
+  .form-group select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #c39090;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+    background-color: rgb(248, 239, 239);
+    appearance: none;
+  }
+  
+  .form-group input:focus,
+  .form-group select:focus {
+    border-color: #d31313;
+    outline: none;
+  }
+  
+  .form-group .error {
+    color: #e63946;
+    font-size: 0.85rem;
+    margin-top: 0.3rem;
+  }
+  
+  button[type='submit'] {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: #ec603d;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button[type='submit']:hover:not(:disabled) {
+    background-color: #ea3d3d;
+  }
+  
+  button[type='submit']:disabled {
+    background-color: #d83333;
+    cursor: not-allowed;
+  }
+  
+  .redirect-text {
+    margin-top: 1.2rem;
+    text-align: center;
+    font-size: 0.9rem;
+  }
+  
+  .redirect-text a {
+    color: #c94604;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  
+  .redirect-text a:hover {
+    text-decoration: underline;
+  }
+  
+  @media (max-width: 768px) {
+    .register-container {
+      flex-direction: column;
+    }
+  
+    .left-panel {
+      display: none;
+    }
+  
+    .right-panel {
+      padding: 2rem;
+    }
+  }
+  

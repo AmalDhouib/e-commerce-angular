@@ -1,0 +1,124 @@
+<form [formGroup]="productform" (ngSubmit)="onSubmit()" class="product-edit-card">
+    <div class="edit">
+      <img src="/assets/img/addlog.png" alt="Add product logo" />
+      <h2>Add Product</h2>
+    </div>
+  
+    <div class="card-content">
+      <div class="image-section">
+        <div class="image-preview" *ngIf="imagePreviewUrl">
+          <img [src]="imagePreviewUrl" alt="Image preview" />
+        </div>
+        <input id="image" type="file" (change)="onFilechange($event)" />
+        <div *ngIf="productform.get('image')?.invalid && productform.get('image')?.touched" class="error">
+          Image is required.
+        </div>
+      </div>
+  
+      <div class="fields-section">
+  
+        <div class="form-group">
+          <label for="name">Product Name</label>
+          <input id="name" formControlName="name" type="text" />
+          <div *ngIf="productform.get('name')?.invalid && productform.get('name')?.touched" class="error">
+            Product name is required.
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label for="price">Price</label>
+          <input id="price" formControlName="price" type="number" step="0.01" />
+          <div *ngIf="productform.get('price')?.invalid && productform.get('price')?.touched" class="error">
+            Price is required.
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label for="stockQuantity">Stock Quantity</label>
+          <input id="stockQuantity" formControlName="stockQuantity" type="number" />
+          <div *ngIf="productform.get('stockQuantity')?.invalid && productform.get('stockQuantity')?.touched" class="error">
+            Stock quantity is required.
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label for="category">Category</label>
+          <select id="category" formControlName="category">
+            <option value="" disabled>Select a category</option>
+            <option *ngFor="let c of categories" [value]="c.id">{{ c.name }}</option>
+          </select>
+          <div *ngIf="productform.get('category')?.invalid && productform.get('category')?.touched" class="error">
+            Category is required.
+          </div>
+        </div>
+  
+        <div class="form-group new-category">
+          <label for="newCategory">Add New Category</label>
+          <input
+            id="newCategory"
+            [(ngModel)]="newCategoryName"
+            [ngModelOptions]="{ standalone: true }"
+            placeholder="New category name"
+            type="text"
+          />
+        </div>
+  
+        <div class="form-group">
+          <label for="material">Material</label>
+          <input id="material" formControlName="material" type="text" />
+          <div *ngIf="productform.get('material')?.invalid && productform.get('material')?.touched" class="error">
+            Material is required.
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label for="technique">Technique</label>
+          <input id="technique" formControlName="technique" type="text" />
+          <div *ngIf="productform.get('technique')?.invalid && productform.get('technique')?.touched" class="error">
+            Technique is required.
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label for="originCountry">Country of Origin</label>
+          <input id="originCountry" formControlName="originCountry" type="text" />
+          <div *ngIf="productform.get('originCountry')?.invalid && productform.get('originCountry')?.touched" class="error">
+            Origin country is required.
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label for="productionTime">Production Time</label>
+          <input id="productionTime" formControlName="productionTime" type="text" />
+          <div *ngIf="productform.get('productionTime')?.invalid && productform.get('productionTime')?.touched" class="error">
+            Production time is required.
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea id="description" formControlName="description" rows="3"></textarea>
+          <div *ngIf="productform.get('description')?.invalid && productform.get('description')?.touched" class="error">
+            Description is required.
+          </div>
+        </div>
+  
+        <div class="checkbox-group">
+          <label>
+            <input type="checkbox" formControlName="ecoFriendly" />
+            Eco-friendly
+          </label>
+          <label>
+            <input type="checkbox" formControlName="limitedEdition" />
+            Limited Edition
+          </label>
+        </div>
+  
+        <div class="buttons">
+          <button type="submit" >Save Changes</button>
+          <button [routerLink]="['/products']" routerLinkActive="router-link-active">Products Page</button>
+        </div>
+      </div>
+    </div>
+  </form>
+  

@@ -1,0 +1,28 @@
+<div class="form-container">
+  <div class="form-section">
+    <h2>Delivery Information</h2>
+    <form (ngSubmit)="submit()">
+      <div class="form-group">
+        <label>Full Name</label>
+        <input [(ngModel)]="fullName" name="fullName" required />
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input [(ngModel)]="email" type="email" name="email" required />
+      </div>
+      <div class="form-group">
+        <label>Address</label>
+        <textarea [(ngModel)]="address" name="address" required></textarea>
+      </div>
+      <div class="form-group">
+        <label>Phone Number</label>
+        <input [(ngModel)]="phone" type="tel" name="phone" required />
+      </div>
+
+      <button type="submit">Confirm Order</button>
+    </form>
+  </div>
+  <div class="image-section">
+    <img src="assets/img/ddd.jpg" alt="Delivery" />
+  </div>
+</div>

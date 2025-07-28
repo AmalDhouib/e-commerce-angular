@@ -1,0 +1,128 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+
+
+.footer {
+  position:absolute;
+
+    background-color: #000;
+    color: #d5c7c7;
+    padding: 40px 0 20px 0;
+    font-family: "Rowdies", sans-serif;
+    font-family: "Fira Sans", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    width: 100%;
+    margin-left: 0;
+    left: 0;
+    right: 0;
+    
+  }
+  
+  .footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 30px;
+    
+  }
+  
+  .footer-section {
+    flex: 1 1 200px;
+    min-width: 200px;
+  }
+  
+  .footer-logo img {
+    height: 150px;
+    width: 150px;
+
+  }
+ 
+  
+  .footer-info h3,
+  .footer-links h4,
+  .footer-social h4 {
+    margin-bottom: 15px;
+    font-weight: 600;
+  }
+  
+  .footer-info p {
+    margin: 6px 0;
+  }
+  
+  .footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .footer-links ul li {
+    margin-bottom: 10px;
+  }
+  
+  .footer-links ul li a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .footer-links ul li a:hover {
+    color: #fff;
+  }
+  
+  .footer-social .social-icons a {
+    display: inline-block;
+    margin-right: 15px;
+    transition: transform 0.3s ease;
+  }
+  
+  .footer-social .social-icons a:hover {
+    transform: scale(1.2);
+  }
+  
+  .footer-social .social-icons img {
+    width: 24px;
+    height: 24px;
+    filter: invert(100%);
+  }
+  
+  .footer-bottom {
+    border-top: 1px solid #222;
+    text-align: center;
+    padding: 15px 0 0;
+    font-size: 13px;
+    color: #666;
+    margin-top: 30px;
+  }
+  
+  /* Responsive */
+  
+  @media (max-width: 768px) {
+    .footer-container {
+      flex-direction: column;
+      gap: 20px;
+      text-align: center;
+    }
+  
+    .footer-section {
+      min-width: unset;
+    }
+  
+    .footer-social .social-icons a {
+      margin-right: 10px;
+    }
+  }
+  
