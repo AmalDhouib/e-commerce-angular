@@ -84,5 +84,5 @@ This project is a full-stack e-commerce website for handmade products, built wit
 
 1. Clone the frontend repository:
    ```bash
-   git clone https://github.com/YOUR_USERNAME/e-commerce-angular.git](https://github.com/AmalDhouib/e-commerce-springboot.git
+   git clone https://github.com/AmalDhouib/e-commerce-angular.git
    cd e-commerce-angular
